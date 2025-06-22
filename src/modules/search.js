@@ -50,7 +50,9 @@ export class SearchManager {
         filters: {
             only_new: this.app.filters.onlyNew,
             name_filter: this.app.filters.nameFilter,
-            price_filter: this.app.filters.priceFilter,
+            price_filter: {
+              is_enabled: this.app.filters.priceFilter,
+            },
             exclude_words: this.app.filters.excludeWords
         }
     };

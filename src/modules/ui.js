@@ -9,7 +9,7 @@ export class UIManager {
       'search-form', 'search-input', 'results-search-form', 'results-search-input',
       'loading-indicator', 'error-message', 'error-text', 'marketplace-tabs',
       'search-results', 'no-results', 'exclude-word-input', 'add-exclude-word',
-      'exclude-words-list', 'max-size-dropdown', 'max-size-btn', 'max-size-list',
+      'exclude-words-list', 'max-size-select', 'max-size-dropdown', 'max-size-btn', 'max-size-list',
       'main-search-button', 'second-search-button', 'search-time', 'search-tags'
     ];
     ids.forEach(id => {
@@ -87,6 +87,13 @@ export class UIManager {
     this.app.elements.resultsLogo?.addEventListener('click', () => {
       this.app.elements['home-page'].scrollIntoView({ behavior: 'smooth' });
     });
+
+    if (this.app.elements['max-size-select']) {
+      console.log('max-size-select found and initialized');
+      this.app.elements['max-size-select'].value = this.app.maxSize;
+    } else {
+      console.error('max-size-select element not found during event binding');
+    }
   }
 
   syncSearchInputs(source, target) {
