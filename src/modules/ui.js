@@ -1,5 +1,3 @@
-// ui.js (ИСПРАВЛЕННАЯ ВЕРСИЯ)
-
 export class UIManager {
     constructor(app) {
         this.app = app;
@@ -144,7 +142,7 @@ export class UIManager {
             const isChecked = this.app.filters.excludedMarketplaces.includes(mp);
             const label = document.createElement('label');
             label.innerHTML = `
-                <input type="checkbox" class="marketplace-exclude-checkbox" data-marketplace="${mp}" ${isChecked ? 'checked' : ''}>
+                <input type="checkbox" class="marketplace-exclude-checkbox filter-checkbox" data-marketplace="${mp}" ${isChecked ? 'checked' : ''}>
                 ${mp}
             `;
             container.appendChild(label);
@@ -216,7 +214,7 @@ export class UIManager {
         if(!tagsContainer) return;
         const tags = [];
         if (this.app.filters.onlyNew) tags.push('Only new');
-        if (this.app.filters.priceFilter) tags.push(`Price filter (t: ${this.app.filters.tolerance.toFixed(2)})`);
+        if (this.app.filters.priceFilter) tags.push(`Price filter (tolerance: ${this.app.filters.tolerance.toFixed(2)})`);
         if (this.app.filters.nameFilter) tags.push('Filter by name');
         tagsContainer.innerHTML = '';
         tags.forEach(tag => {
