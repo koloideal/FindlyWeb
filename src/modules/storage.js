@@ -16,14 +16,18 @@ export class StorageManager {
     if (savedStateJSON) {
       const savedState = JSON.parse(savedStateJSON);
       this.app.maxSize = savedState.maxSize ?? this.app.constructor.DEFAULT_MAX_SIZE;
-      this.app.filters = savedState.filters ?? { 
-        onlyNew: false, 
-        nameFilter: false, 
-        priceFilter: false, 
-        excludeWords: [] 
-      };
+      const defaultFilters = {
+            onlyNew: false,
+            nameFilter: false,
+            priceFilter: false,
+            tolerance: 0.25,
+            excludeWords: [],
+            excludedMarketplaces: []
+        };
+      this.app.filters = { ...defaultFilters, ...(savedState.filters || {}) };
+      }
     }
-  }
+
 
   addExcludeWord() {
     const input = this.app.elements['exclude-word-input'];

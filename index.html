@@ -148,6 +148,13 @@
     <label><input class="filter-checkbox" data-filter="nameFilter" type="checkbox">Filter by name</label>
     <label><input class="filter-checkbox" data-filter="priceFilter" type="checkbox">Filter by price</label>
 
+    <div id="tolerance-section" class="hidden">
+        <label for="tolerance-slider">
+            Tolerance: <span id="tolerance-value">0.25</span>
+        </label>
+        <input type="range" id="tolerance-slider" min="0.05" max="1" step="0.05">
+    </div>
+
     <div class="custom-select">
       <span id="size-of-products">Size of products:</span>
       <select id="max-size-select" class="form-control max-size-select">
@@ -166,6 +173,10 @@
       </button>
     </div>
     <div class="exclude-words-list" id="exclude-words-list"></div>
+     <div class="settings-section">
+        <label>Exclude marketplaces:</label>
+        <div id="marketplace-excludes-container"></div>
+    </div>
   </div>
 </div>
 

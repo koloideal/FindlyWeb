@@ -23,10 +23,12 @@ export class FindlyWeb {
   #searchResults = {};
   #maxSize = FindlyWeb.#DEFAULT_MAX_SIZE;
   #filters = {
-    onlyNew: false,
-    nameFilter: false,
-    priceFilter: false,
-    excludeWords: [],
+      onlyNew: false,
+      nameFilter: false,
+      priceFilter: false,
+      tolerance: 0.25,
+      excludeWords: [],
+      excludedMarketplaces: []
   };
 
   #elements = {};

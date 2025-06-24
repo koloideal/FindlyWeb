@@ -45,19 +45,24 @@ export class SearchManager {
     const url = new URL(this.app.apiBaseUrl + this.app.searchEndpoint)
 
     const payload = {
-      query: query,
-      max_size: {
-        size: this.app.maxSize,
-        max_or_min_cut: 'min'
-      },
-      filters: {
-        only_new: this.app.filters.onlyNew,
-        name_filter: this.app.filters.nameFilter,
-        price_filter: {
-          is_enabled: this.app.filters.priceFilter
+        query: query,
+        max_size: {
+            size: this.app.maxSize,
+            max_or_min_cut: 'min'
         },
-        exclude_words: this.app.filters.excludeWords
-      }
+        exclude_marketplaces: this.app.filters.excludedMarketplaces,
+        filters: {
+            only_new: this.app.filters.onlyNew,
+            name_filter: this.app.filters.nameFilter,
+            price_filter: {
+                is_enabled: this.app.filters.priceFilter
+            },
+            exclude_words: this.app.filters.excludeWords
+        }
+    };
+
+    if (this.app.filters.priceFilter) {
+        payload.filters.price_filter.tolerance = this.app.filters.tolerance;
     }
 
     const controller = new AbortController()
