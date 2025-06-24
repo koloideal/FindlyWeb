@@ -1095,6 +1095,40 @@ option {
         padding: var(--space-8) var(--space-12);
         font-size: var(--font-size-sm);
     }
+
+    .settings-menu {
+        position: absolute;
+        width: 80vw;
+        height: max-content;
+        margin-right: 10vw;
+        right: 0 !important;
+
+
+        /* 3. Опционально: можно увеличить скругление углов для такого вида */
+        border-radius: var(--radius-lg);
+
+        /* 4. Добавляем плавность для анимации появления */
+        transition: all var(--duration-normal) var(--ease-standard);
+      }
+    #search-params-title{
+        font-size: var(--font-size-3xl);
+    }
+    .settings-section label {
+        font-size: 18px !important;
+    }
+    #size-of-products{
+        font-size: var(--font-size-xl);
+    }
+    .max-size-select{
+        font-size: var(--font-size-lg) !important;
+    }
+    #exclude-word-input{
+        font-size: var(--font-size-lg);
+        width: 140px !important;
+    }
+    .exclude-word-chip{
+        font-size: var(--font-size-lg) !important;
+    }
 }
 
 @media (max-width: 480px) {
