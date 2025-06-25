@@ -1129,6 +1129,9 @@ option {
     .exclude-word-chip{
         font-size: var(--font-size-lg) !important;
     }
+    .close-btn{
+        font-size: 28px !important;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1205,6 +1208,22 @@ option {
 
 .settings-menu.hidden {
     display: none;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    padding: 0;
+}
+
+.close-btn:hover {
+    color: var(--color-primary);
 }
 
 .settings-section {

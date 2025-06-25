@@ -21,11 +21,15 @@ export class UIManager {
         this.app.elements.filterCheckboxes = document.querySelectorAll('#settings-menu .filter-checkbox');
         this.app.elements.tabButtons = document.querySelectorAll('.tab-button');
         this.app.elements.resultsLogo = document.querySelector('.results-logo');
+        this.app.elements.closeSettingsBtn = document.getElementById('close-settings-btn')
     }
 
     bindEvents() {
-        // Открытие/закрытие меню настроек
         this.app.elements['settings-button']?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.app.elements['settings-menu'].classList.toggle('hidden');
+        });
+        this.app.elements.closeSettingsBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             this.app.elements['settings-menu'].classList.toggle('hidden');
         });
@@ -35,14 +39,11 @@ export class UIManager {
             }
         });
 
-        // Основные чекбоксы фильтров
         this.app.elements.filterCheckboxes?.forEach(checkbox => {
             checkbox.addEventListener('change', (e) => {
                 const filterName = e.target.dataset.filter;
                 this.app.filters[filterName] = e.target.checked;
 
-                // *** ИСПРАВЛЕНИЕ ЗДЕСЬ ***
-                // Теперь мы напрямую проверяем нужный фильтр и вызываем функцию
                 if (filterName === 'priceFilter') {
                     this.updateToleranceVisibility();
                 }
