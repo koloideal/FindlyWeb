@@ -4,7 +4,7 @@ import { StorageManager } from './storage.js';
 import { ValidationManager } from './validation.js';
 
 export class FindlyWeb {
-  static #API_BASE_URL = 'http://127.0.0.1:8000';
+  static #API_BASE_URL = 'http://192.168.196.105:8000';
   static #SEARCH_ENDPOINT = '/api/search';
   static #MARKETPLACES = ['MMG', 'Onliner', 'Kufar', '21vek'];
   static #DEFAULT_MAX_SIZE = 20;
@@ -55,7 +55,6 @@ export class FindlyWeb {
     this.#validation = new ValidationManager(this);
   }
 
-  // Геттеры для доступа к приватным свойствам
   get apiBaseUrl() { return this.#apiBaseUrl; }
   get searchEndpoint() { return this.#searchEndpoint; }
   get marketplaces() { return this.#marketplaces; }
@@ -67,7 +66,6 @@ export class FindlyWeb {
   get elements() { return this.#elements; }
   get toastTimeoutId() { return this.#toastTimeoutId; }
 
-  // Сеттеры для изменения приватных свойств
   set currentQuery(value) { this.#currentQuery = value; }
   set currentMarketplace(value) { this.#currentMarketplace = value; }
   set searchResults(value) { this.#searchResults = value; }
@@ -75,13 +73,11 @@ export class FindlyWeb {
   set filters(value) { this.#filters = value; }
   set toastTimeoutId(value) { this.#toastTimeoutId = value; }
 
-  // Геттеры для модулей
   get ui() { return this.#ui; }
   get search() { return this.#search; }
   get storage() { return this.#storage; }
   get validation() { return this.#validation; }
 
-  // Статические геттеры для констант
   static get API_BASE_URL() { return FindlyWeb.#API_BASE_URL; }
   static get SEARCH_ENDPOINT() { return FindlyWeb.#SEARCH_ENDPOINT; }
   static get MARKETPLACES() { return FindlyWeb.#MARKETPLACES; }
@@ -91,7 +87,6 @@ export class FindlyWeb {
   static get QUERY_VALIDATION_REGEX() { return FindlyWeb.#QUERY_VALIDATION_REGEX; }
   static get EXCLUDE_WORD_VALIDATION_REGEX() { return FindlyWeb.#EXCLUDE_WORD_VALIDATION_REGEX; }
 
-  // Публичные методы для совместимости
   performSearch(query) {
     return this.#search.performSearch(query);
   }

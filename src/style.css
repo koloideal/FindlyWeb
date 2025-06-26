@@ -1,5 +1,4 @@
 :root {
-
     --color-background: rgba(252, 252, 249, 1);
     --color-surface: rgba(255, 255, 253, 1);
     --color-text: rgba(19, 52, 59, 1);
@@ -771,6 +770,7 @@ option {
     font-weight: bolder;
     font-size: small;
     white-space: nowrap;
+    fill: var(--color-background);
 }
 
 .results-page {
@@ -1083,8 +1083,25 @@ option {
     }
 
     .products-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: var(--space-16);
+        grid-template-columns: repeat(2, minmax(150px, 1fr)); /* Изменено для двух столбцов и меньшего размера */
+        gap: var(--space-12); /* Возможно, уменьшить отступы для плотного размещения */
+    }
+
+    .product-image {
+        height: 120px; /* Уменьшить высоту изображения */
+    }
+
+    .product-title {
+        font-size: var(--font-size-sm); /* Уменьшить размер шрифта заголовка */
+        margin-bottom: var(--space-4); /* Уменьшить отступ */
+    }
+
+    .product-price {
+        font-size: var(--font-size-base); /* Уменьшить размер шрифта цены */
+    }
+
+    .product-info {
+        padding: var(--space-8); /* Уменьшить внутренние отступы */
     }
 
     .tabs-container {
@@ -1135,10 +1152,6 @@ option {
 }
 
 @media (max-width: 480px) {
-    .products-grid {
-        grid-template-columns: 1fr;
-    }
-
     .container {
         padding-left: var(--space-12);
         padding-right: var(--space-12);
@@ -1149,6 +1162,10 @@ option {
     html {
         scroll-behavior: smooth;
     }
+}
+
+.product-info p{
+    margin: 0;
 }
 
 .search-time {
@@ -1194,7 +1211,7 @@ option {
 }
 
 .settings-menu {
-    position: fixed;
+    position: absolute;
     top: 65px;
     right: 30px;
     width: 240px;
@@ -1217,7 +1234,7 @@ option {
     background: none;
     border: none;
     font-size: 24px;
-    color: white;
+    color: var(--color-text);
     cursor: pointer;
     padding: 0;
 }
