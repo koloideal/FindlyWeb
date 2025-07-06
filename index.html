@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -7,180 +8,211 @@
   <link href="src/style.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body>
-<div id="toast-notification" class="toast-notification"></div>
-<div class="home-page" id="home-page">
-  <div class="home-container">
-    <h1 class="logo bounce" id="logo">FindlyWeb</h1>
-    <div class="search-container">
-      <form class="search-form" id="search-form">
-        <input
-          autocomplete="off"
-          class="search-input form-control"
-          id="search-input"
-          placeholder="Enter query..."
-          type="text"
-        >
-        <button class="search-button btn btn--primary" id="main-search-button" type="submit">
-          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0 0 30 30">
-            <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"></path>
-          </svg>
-        </button>
-      </form>
-    </div>
-  </div>
-</div>
 
-<div class="results-page hidden" id="results-page">
-  <header class="results-header" id="results-header">
-    <div class="container">
-      <div class="results-search-container">
-        <h1 class="results-logo animated-gradient-title">FindlyWeb</h1>
-        <form class="results-search-form" id="results-search-form">
-          <input
-            autocomplete="off"
-            class="search-input form-control"
-            id="results-search-input"
-            placeholder="Enter query..."
-            type="text"
-          >
-          <button class="search-button btn btn--primary btn--sm" id="second-search-button" type="submit">
-            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 30 30">
-              <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"></path>
+<body>
+  <div id="toast-notification" class="toast-notification"></div>
+  <div class="home-page" id="home-page">
+    <button aria-label="Переключить тему" class="theme-toggle">
+      <symbol id="svg-sun" viewBox="0 0 24 24">
+        <title>Light mode</title>
+        <svg class="icon sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+          stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" x2="12" y1="1" y2="3"></line>
+          <line x1="12" x2="12" y1="21" y2="23"></line>
+          <line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
+          <line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
+          <line x1="1" x2="3" y1="12" y2="12"></line>
+          <line x1="21" x2="23" y1="12" y2="12"></line>
+          <line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
+          <line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line>
+        </svg>
+      </symbol>
+
+      <symbol id="svg-moon" viewBox="0 0 24 24">
+        <title>Dark mode</title>
+        <svg class="icon moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+          stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+          <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+        </svg>
+      </symbol>
+    </button>
+
+    <button class="settings-button" title="Настройки поиска">
+      <i class="fas fa-cog"></i>
+    </button>
+    <div class="home-container">
+      <h1 class="logo bounce" id="logo">FindlyWeb</h1>
+      <div class="search-container">
+        <form class="search-form" id="search-form">
+          <input autocomplete="off" class="search-input form-control" id="search-input" placeholder="Enter query..."
+            type="text">
+          <button class="search-button btn btn--primary" id="main-search-button" type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0 0 30 30">
+              <path
+                d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z">
+              </path>
             </svg>
           </button>
         </form>
-        <div class="search-tags" id="search-tags"></div>
-        <div class="search-time" id="search-time"></div>
       </div>
     </div>
-  </header>
+  </div>
 
-  <main class="results-main">
-    <div class="container">
-      <div class="loading-indicator hidden" id="loading-indicator">
-        <div class="loading-spinner"></div>
-        <p>Products search...</p>
-      </div>
-
-      <div class="error-message hidden" id="error-message">
-        <div class="status status--error">
-          <span id="error-text">Error while searching</span>
-        </div>
-      </div>
-
-      <div class="marketplace-tabs hidden" id="marketplace-tabs">
-        <div class="tabs-container">
-          <button class="tab-button" data-marketplace="MMG">
-            MMG <span class="tab-count" id="count-MMG">0</span>
-          </button>
-          <button class="tab-button" data-marketplace="Onliner">
-            Onliner <span class="tab-count" id="count-Onliner">0</span>
-          </button>
-          <button class="tab-button" data-marketplace="Kufar">
-            Kufar <span class="tab-count" id="count-Kufar">0</span>
-          </button>
-          <button class="tab-button" data-marketplace="21vek">
-            21vek <span class="tab-count" id="count-21vek">0</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="search-results hidden" id="search-results">
-        <div class="marketplace-results active" id="results-MMG">
-          <div class="products-grid" id="products-MMG"></div>
-        </div>
-        <div class="marketplace-results" id="results-Onliner">
-          <div class="products-grid" id="products-Onliner"></div>
-        </div>
-        <div class="marketplace-results" id="results-Kufar">
-          <div class="products-grid" id="products-Kufar"></div>
-        </div>
-        <div class="marketplace-results" id="results-21vek">
-          <div class="products-grid" id="products-21vek"></div>
-        </div>
-      </div>
-
-      <div class="no-results hidden" id="no-results">
-        <div class="status status--info">
-          Products not found
-        </div>
-      </div>
+  <div class="results-page hidden" id="results-page">
+    <div class="return-block hidden">
+      <div class="return-block-spinner hidden"></div>
+      <h5 class="hidden">Назад</h5>
     </div>
-  </main>
-</div>
+    <div class="actual-results-page">
+      <header class="results-header" id="results-header">
+        <button aria-label="Переключить тему" class="theme-toggle">
+          <symbol id="svg-sun" viewBox="0 0 24 24">
+            <title>Light mode</title>
+            <svg class="icon sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" x2="12" y1="1" y2="3"></line>
+              <line x1="12" x2="12" y1="21" y2="23"></line>
+              <line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
+              <line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
+              <line x1="1" x2="3" y1="12" y2="12"></line>
+              <line x1="21" x2="23" y1="12" y2="12"></line>
+              <line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
+              <line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line>
+            </svg>
+          </symbol>
 
-<button aria-label="Переключить тему" class="theme-toggle" id="theme-toggle">
-  <symbol id="svg-sun" viewBox="0 0 24 24">
-    <title>Light mode</title>
-    <svg class="icon sun" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-         stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="12" cy="12" r="5"></circle>
-      <line x1="12" x2="12" y1="1" y2="3"></line>
-      <line x1="12" x2="12" y1="21" y2="23"></line>
-      <line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
-      <line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
-      <line x1="1" x2="3" y1="12" y2="12"></line>
-      <line x1="21" x2="23" y1="12" y2="12"></line>
-      <line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
-      <line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line>
-    </svg>
-  </symbol>
+          <symbol id="svg-moon" viewBox="0 0 24 24">
+            <title>Dark mode</title>
+            <svg class="icon moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+              <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+            </svg>
+          </symbol>
+        </button>
 
-  <symbol id="svg-moon" viewBox="0 0 24 24">
-    <title>Dark mode</title>
-    <svg class="icon moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-         stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
-      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
-    </svg>
-  </symbol>
-</button>
+        <button class="settings-button" title="Настройки поиска">
+          <i class="fas fa-cog"></i>
+        </button>
+        <div class="container">
+          <div class="results-search-container">
+            <h1 class="results-logo animated-gradient-title">FindlyWeb</h1>
+            <form class="results-search-form" id="results-search-form">
+              <input autocomplete="off" class="search-input form-control" id="results-search-input"
+                placeholder="Enter query..." type="text">
+              <button class="search-button btn btn--primary btn--sm" id="second-search-button" type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 30 30">
+                  <path
+                    d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z">
+                  </path>
+                </svg>
+              </button>
+            </form>
+            <div class="search-tags" id="search-tags"></div>
+            <div class="search-time" id="search-time"></div>
+          </div>
+        </div>
+      </header>
 
-<button class="settings-button" id="settings-button" title="Настройки поиска">
-  <i class="fas fa-cog"></i>
-</button>
+      <main class="results-main">
+        <div class="container">
+          <div class="loading-indicator hidden" id="loading-indicator">
+            <div class="loading-spinner"></div>
+            <p>Products search...</p>
+          </div>
 
-<div class="settings-menu hidden" id="settings-menu">
-  <button id="close-settings-btn" class="close-btn">&times;</button>
-  <div class="settings-section">
-    <h4 id="search-params-title">Search params</h4>
-    <label><input class="filter-checkbox" data-filter="onlyNew" type="checkbox">Only new products</label>
-    <label><input class="filter-checkbox" data-filter="nameFilter" type="checkbox">Filter by name</label>
-    <label><input class="filter-checkbox" data-filter="priceFilter" type="checkbox">Filter by price</label>
+          <div class="error-message hidden" id="error-message">
+            <div class="status status--error">
+              <span id="error-text">Error while searching</span>
+            </div>
+          </div>
 
-    <div id="tolerance-section" class="hidden">
+          <div class="marketplace-tabs hidden" id="marketplace-tabs">
+            <div class="tabs-container">
+              <button class="tab-button" data-marketplace="MMG">
+                MMG <span class="tab-count" id="count-MMG">0</span>
+              </button>
+              <button class="tab-button" data-marketplace="Onliner">
+                Onliner <span class="tab-count" id="count-Onliner">0</span>
+              </button>
+              <button class="tab-button" data-marketplace="Kufar">
+                Kufar <span class="tab-count" id="count-Kufar">0</span>
+              </button>
+              <button class="tab-button" data-marketplace="21vek">
+                21vek <span class="tab-count" id="count-21vek">0</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="search-results hidden" id="search-results">
+            <div class="marketplace-results active" id="results-MMG">
+              <div class="products-grid" id="products-MMG"></div>
+            </div>
+            <div class="marketplace-results" id="results-Onliner">
+              <div class="products-grid" id="products-Onliner"></div>
+            </div>
+            <div class="marketplace-results" id="results-Kufar">
+              <div class="products-grid" id="products-Kufar"></div>
+            </div>
+            <div class="marketplace-results" id="results-21vek">
+              <div class="products-grid" id="products-21vek"></div>
+            </div>
+          </div>
+
+          <div class="no-results hidden" id="no-results">
+            <div class="status status--info">
+              Products not found
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div class="settings-menu hidden" id="settings-menu">
+    <button id="close-settings-btn" class="close-btn">&times;</button>
+    <div class="settings-section">
+      <h4 id="search-params-title">Search params</h4>
+      <label><input class="filter-checkbox" data-filter="onlyNew" type="checkbox">Only new products</label>
+      <label><input class="filter-checkbox" data-filter="nameFilter" type="checkbox">Filter by name</label>
+      <label><input class="filter-checkbox" data-filter="priceFilter" type="checkbox">Filter by price</label>
+
+      <div id="tolerance-section" class="hidden">
         <label for="tolerance-slider">
-            Tolerance: <span id="tolerance-value">0.25</span>
+          Tolerance: <span id="tolerance-value">0.25</span>
         </label>
         <input type="range" id="tolerance-slider" min="0.05" max="1" step="0.05">
-    </div>
+      </div>
 
-    <div class="custom-select">
-      <span id="size-of-products">Size of products:</span>
-      <select id="max-size-select" class="form-control max-size-select">
+      <div class="custom-select">
+        <span id="size-of-products">Size of products:</span>
+        <select id="max-size-select" class="form-control max-size-select">
           <option value="10">10</option>
           <option value="20">20</option>
           <option value="30">30</option>
           <option value="40">40</option>
-      </select>
-  </div>
+        </select>
+      </div>
 
-    <label>Exclude words:</label>
-    <div class="exclude-words-ui">
-      <input autocomplete="off" id="exclude-word-input" placeholder="Enter word" type="text" />
-      <button id="add-exclude-word" type="button">
-        +
-      </button>
-    </div>
-    <div class="exclude-words-list" id="exclude-words-list"></div>
-     <div class="settings-section">
+      <label>Exclude words:</label>
+      <div class="exclude-words-ui">
+        <input autocomplete="off" id="exclude-word-input" placeholder="Enter word" type="text" />
+        <button id="add-exclude-word" type="button">
+          +
+        </button>
+      </div>
+      <div class="exclude-words-list" id="exclude-words-list"></div>
+      <div class="settings-section">
         <label>Exclude marketplaces:</label>
         <div id="marketplace-excludes-container"></div>
+      </div>
     </div>
   </div>
-</div>
 
-<script type="module" src="src/app-modular.js"></script>
+  <script type="module" src="src/app-modular.js"></script>
 </body>
+
 </html>

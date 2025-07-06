@@ -2,7 +2,7 @@ export class ThemeSwitcher {
   #toggleBtn;
 
   constructor() {
-    this.#toggleBtn = document.getElementById('theme-toggle');
+    this.#toggleBtn = document.querySelector('.theme-toggle');
     this.#initTheme();
     this.#bindEvents();
   }

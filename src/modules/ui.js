@@ -5,12 +5,12 @@ export class UIManager {
 
     initElements() {
         const ids = [
-            'settings-button', 'settings-menu', 'home-page', 'results-page',
+            'settings-menu', 'home-page', 'results-page',
             'toast-notification', 'search-form', 'search-input', 'results-search-form',
             'results-search-input', 'loading-indicator', 'error-message', 'error-text',
             'marketplace-tabs', 'search-results', 'no-results', 'exclude-word-input',
             'add-exclude-word', 'exclude-words-list', 'max-size-select', 'main-search-button',
-            'second-search-button', 'search-time', 'search-tags',
+            'second-search-button', 'search-time', 'search-tags', 'results-header',
             'price-filter-checkbox', 'tolerance-section', 'tolerance-slider', 'tolerance-value',
             'marketplace-excludes-container'
         ];
@@ -25,7 +25,7 @@ export class UIManager {
     }
 
     bindEvents() {
-        this.app.elements['settings-button']?.addEventListener('click', (e) => {
+            document.querySelector('.settings-button')?.addEventListener('click', (e) => {
             e.stopPropagation();
             this.app.elements['settings-menu'].classList.toggle('hidden');
         });
@@ -165,8 +165,11 @@ export class UIManager {
         });
     }
     showResultsPage() { this.app.elements['results-page']?.classList.remove('hidden'); }
+    hideResultsPage() { this.app.elements['results-page']?.classList.add('hidden'); }
     showLoading() { this.app.elements['loading-indicator']?.classList.remove('hidden'); }
     hideLoading() { this.app.elements['loading-indicator']?.classList.add('hidden'); }
+    hideHomePage() { this.app.elements['home-page']?.classList.add('hidden'); }
+    showHomePage() { this.app.elements['home-page']?.classList.remove('hidden'); }
     showError(message) {
         if (this.app.elements['error-text']) this.app.elements['error-text'].textContent = message;
         this.app.elements['error-message']?.classList.remove('hidden');
