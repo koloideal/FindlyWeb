@@ -10,34 +10,45 @@ export class SearchManager {
     this.app.ui.showResultsPage()
     this.app.elements['results-page']?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     const that = this;
-
-    document.querySelector('.return-block')?.classList?.remove('hidden')
     let timeout;
 
     setTimeout(() => {
+      document.querySelector('.return-block')?.classList?.remove('hidden')
       this.app.ui.hideHomePage();
 
-      window?.addEventListener('scroll', function () {
-        if (window.scrollY < 50) {
-          document.querySelector('.return-block-spinner')?.classList?.remove('hidden')
-          document.querySelector('.return-block h5')?.classList?.remove('hidden')
-          window.addEventListener('touchend', function () {
-            window.scrollTo({ top: 50 })
-          }, { once: true });
+      if (window.innerWidth < 768) {
+        window?.addEventListener('scroll', function () {
+          if (window.scrollY < 45) {
+            document.querySelector('.return-block-spinner')?.classList?.remove('hidden')
+            document.querySelector('.return-block h5')?.classList?.remove('hidden')
 
-          timeout = setTimeout(() => {
-            if (window.scrollY < 50) {
-              that.app.ui.showHomePage();
-              that.app.ui.hideResultsPage();
-            };
-          }, 2000);
-        } else {
-          this.clearTimeout(timeout);
-          document.querySelector('.return-block-spinner')?.classList?.add('hidden')
-          document.querySelector('.return-block h5')?.classList?.add('hidden')
-        }
-      });
+            if (!timeout) {
+              window.addEventListener('touchend', function () {
+                window.scrollTo({ top: 50 })
+                clearTimeout(timeout);
+                timeout = null;
+              }, { once: true });
+
+              timeout = setTimeout(() => {
+                if (window.scrollY < 50) {
+                  that.app.ui.showHomePage();
+                  that.app.ui.hideResultsPage();
+                };
+              }, 2000);
+            }
+          } else {
+            if (timeout) {
+              clearTimeout(timeout);
+              timeout = null;
+            }
+
+            document.querySelector('.return-block-spinner')?.classList?.add('hidden')
+            document.querySelector('.return-block h5')?.classList?.add('hidden')
+          }
+        });
+      }
     }, 550);
+
     this.app.ui.showLoading()
     this.app.ui.hideError()
     this.app.ui.hideResults()
