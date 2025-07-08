@@ -12,11 +12,11 @@ export class SearchManager {
     const that = this;
     let timeout;
 
-    setTimeout(() => {
-      document.querySelector('.return-block')?.classList?.remove('hidden')
-      this.app.ui.hideHomePage();
+    if (window.innerWidth < 768) {
+      setTimeout(() => {
+        document.querySelector('.return-block')?.classList?.remove('hidden')
+        this.app.ui.hideHomePage();
 
-      if (window.innerWidth < 768) {
         window?.addEventListener('scroll', function () {
           if (window.scrollY < 45) {
             document.querySelector('.return-block-spinner')?.classList?.remove('hidden')
@@ -46,9 +46,9 @@ export class SearchManager {
             document.querySelector('.return-block h5')?.classList?.add('hidden')
           }
         });
-      }
-    }, 550);
-
+      }, 550);
+    }
+    
     this.app.ui.showLoading()
     this.app.ui.hideError()
     this.app.ui.hideResults()
