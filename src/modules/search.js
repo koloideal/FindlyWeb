@@ -9,7 +9,46 @@ export class SearchManager {
 
     this.app.ui.showResultsPage()
     this.app.elements['results-page']?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    const that = this;
+    let timeout;
 
+    if (window.innerWidth < 768) {
+      setTimeout(() => {
+        document.querySelector('.return-block')?.classList?.remove('hidden')
+        this.app.ui.hideHomePage();
+
+        window?.addEventListener('scroll', function () {
+          if (window.scrollY < 45) {
+            document.querySelector('.return-block-spinner')?.classList?.remove('hidden')
+            document.querySelector('.return-block h5')?.classList?.remove('hidden')
+
+            if (!timeout) {
+              window.addEventListener('touchend', function () {
+                window.scrollTo({ top: 50 })
+                clearTimeout(timeout);
+                timeout = null;
+              }, { once: true });
+
+              timeout = setTimeout(() => {
+                if (window.scrollY < 50) {
+                  that.app.ui.showHomePage();
+                  that.app.ui.hideResultsPage();
+                };
+              }, 2000);
+            }
+          } else {
+            if (timeout) {
+              clearTimeout(timeout);
+              timeout = null;
+            }
+
+            document.querySelector('.return-block-spinner')?.classList?.add('hidden')
+            document.querySelector('.return-block h5')?.classList?.add('hidden')
+          }
+        });
+      }, 550);
+    }
+    
     this.app.ui.showLoading()
     this.app.ui.hideError()
     this.app.ui.hideResults()
@@ -45,24 +84,24 @@ export class SearchManager {
     const url = new URL(this.app.apiBaseUrl + this.app.searchEndpoint)
 
     const payload = {
-        query: query,
-        max_size: {
-            size: this.app.maxSize,
-            max_or_min_cut: 'min'
+      query: query,
+      max_size: {
+        size: this.app.maxSize,
+        max_or_min_cut: 'min'
+      },
+      exclude_marketplaces: this.app.filters.excludedMarketplaces,
+      filters: {
+        only_new: this.app.filters.onlyNew,
+        name_filter: this.app.filters.nameFilter,
+        price_filter: {
+          is_enabled: this.app.filters.priceFilter
         },
-        exclude_marketplaces: this.app.filters.excludedMarketplaces,
-        filters: {
-            only_new: this.app.filters.onlyNew,
-            name_filter: this.app.filters.nameFilter,
-            price_filter: {
-                is_enabled: this.app.filters.priceFilter
-            },
-            exclude_words: this.app.filters.excludeWords
-        }
+        exclude_words: this.app.filters.excludeWords
+      }
     };
 
     if (this.app.filters.priceFilter) {
-        payload.filters.price_filter.tolerance = this.app.filters.tolerance;
+      payload.filters.price_filter.tolerance = this.app.filters.tolerance;
     }
 
     const controller = new AbortController()

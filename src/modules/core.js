@@ -4,7 +4,7 @@ import { StorageManager } from './storage.js';
 import { ValidationManager } from './validation.js';
 
 export class FindlyWeb {
-  static #API_BASE_URL = 'http://192.168.0.112:8000';
+  static #API_BASE_URL = 'http://127.0.0.1:8000';
   static #SEARCH_ENDPOINT = '/api/search';
   static #MARKETPLACES = ['MMG', 'Onliner', 'Kufar', '21vek'];
   static #DEFAULT_MAX_SIZE = 20;

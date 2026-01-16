@@ -36,9 +36,9 @@
 
 
     --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo,
-    Monaco, Consolas, monospace;
+        Monaco, Consolas, monospace;
     --font-size-xs: 11px;
     --font-size-sm: 12px;
     --font-size-base: 14px;
@@ -83,11 +83,11 @@
     --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04),
-    0 2px 4px -1px rgba(0, 0, 0, 0.02);
+        0 2px 4px -1px rgba(0, 0, 0, 0.02);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04),
-    0 4px 6px -2px rgba(0, 0, 0, 0.02);
+        0 4px 6px -2px rgba(0, 0, 0, 0.02);
     --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+        inset 0 -1px 0 rgba(0, 0, 0, 0.03);
 
 
     --duration-fast: 150ms;
@@ -104,7 +104,7 @@
 
 .theme-toggle {
     position: absolute;
-    top: 20px;
+    top: 35px;
     left: 20px;
     background: none;
     border: none;
@@ -184,7 +184,7 @@
         --color-card-border: rgba(119, 124, 124, 0.2);
         --color-card-border-inner: rgba(119, 124, 124, 0.15);
         --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+            inset 0 -1px 0 rgba(0, 0, 0, 0.15);
         --button-border-secondary: rgba(119, 124, 124, 0.2);
         --color-border-secondary: rgba(119, 124, 124, 0.2);
         --color-select-caret: rgba(245, 245, 245, 0.8);
@@ -226,7 +226,7 @@
     --color-card-border: rgba(119, 124, 124, 0.15);
     --color-card-border-inner: rgba(119, 124, 124, 0.15);
     --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+        inset 0 -1px 0 rgba(0, 0, 0, 0.15);
     --color-border-secondary: rgba(119, 124, 124, 0.2);
     --color-select-caret: rgba(245, 245, 245, 0.8);
 
@@ -463,7 +463,7 @@ pre code {
     border: 1px solid var(--color-border);
     border-radius: var(--radius-base);
     transition: border-color var(--duration-fast) var(--ease-standard),
-    box-shadow var(--duration-fast) var(--ease-standard);
+        box-shadow var(--duration-fast) var(--ease-standard);
 }
 
 textarea.form-control {
@@ -529,37 +529,29 @@ option {
 }
 
 .status--success {
-    background-color: rgba(
-            var(--color-success-rgb, 33, 128, 141),
-            var(--status-bg-opacity)
-    );
+    background-color: rgba(var(--color-success-rgb, 33, 128, 141),
+            var(--status-bg-opacity));
     color: var(--color-success);
     border: 1px solid rgba(var(--color-success-rgb, 33, 128, 141), var(--status-border-opacity));
 }
 
 .status--error {
-    background-color: rgba(
-            var(--color-error-rgb, 192, 21, 47),
-            var(--status-bg-opacity)
-    );
+    background-color: rgba(var(--color-error-rgb, 192, 21, 47),
+            var(--status-bg-opacity));
     color: var(--color-error);
     border: 1px solid rgba(var(--color-error-rgb, 192, 21, 47), var(--status-border-opacity));
 }
 
 .status--warning {
-    background-color: rgba(
-            var(--color-warning-rgb, 168, 75, 47),
-            var(--status-bg-opacity)
-    );
+    background-color: rgba(var(--color-warning-rgb, 168, 75, 47),
+            var(--status-bg-opacity));
     color: var(--color-warning);
     border: 1px solid rgba(var(--color-warning-rgb, 168, 75, 47), var(--status-border-opacity));
 }
 
 .status--info {
-    background-color: rgba(
-            var(--color-info-rgb, 98, 108, 113),
-            var(--status-bg-opacity)
-    );
+    background-color: rgba(var(--color-info-rgb, 98, 108, 113),
+            var(--status-bg-opacity));
     color: var(--color-info);
     border: 1px solid rgba(var(--color-info-rgb, 98, 108, 113), var(--status-border-opacity));
 }
@@ -713,7 +705,12 @@ option {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--color-background);
+    background: url(/img/pattern-light.svg);
+    position: relative;
+}
+
+[data-theme="dark"] .home-page {
+    background: url(/img/pattern.svg);
 }
 
 .home-container {
@@ -744,7 +741,8 @@ option {
     padding: var(--space-8);
     border-radius: var(--radius-full);
     border: 1px solid var(--color-border);
-    box-shadow: var(--shadow-sm);
+    
+    box-shadow: 0 0 8px 2px var(--color-primary);
 }
 
 .search-form:focus-within {
@@ -756,7 +754,7 @@ option {
     flex: 1;
     border: none;
     background: transparent;
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-2xl);
     outline: none;
 }
 
@@ -850,6 +848,7 @@ option {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -883,7 +882,7 @@ option {
     color: var(--color-text-secondary);
     cursor: pointer;
     transition: opacity var(--duration-normal) var(--ease-standard),
-    transform var(--duration-normal) var(--ease-standard);
+        transform var(--duration-normal) var(--ease-standard);
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-medium);
     white-space: nowrap;
@@ -932,18 +931,23 @@ option {
     0% {
         transform: translateY(0);
     }
+
     20% {
         transform: translateY(10px);
     }
+
     40% {
         transform: translateY(10px);
     }
+
     60% {
         transform: translateY(10px);
     }
+
     80% {
         transform: translateY(10px);
     }
+
     100% {
         transform: translateY(0);
     }
@@ -1034,7 +1038,7 @@ option {
         right: 24% !important;
     }
 
-    .toast-notification{
+    .toast-notification {
         padding: 6px 12px !important;
     }
 
@@ -1069,7 +1073,7 @@ option {
         align-items: center;
     }
 
-    .search-container{
+    .search-container {
         max-width: 290px;
     }
 
@@ -1083,25 +1087,32 @@ option {
     }
 
     .products-grid {
-        grid-template-columns: repeat(2, minmax(150px, 1fr)); /* Изменено для двух столбцов и меньшего размера */
-        gap: var(--space-12); /* Возможно, уменьшить отступы для плотного размещения */
+        grid-template-columns: repeat(2, minmax(150px, 1fr));
+        /* Изменено для двух столбцов и меньшего размера */
+        gap: var(--space-12);
+        /* Возможно, уменьшить отступы для плотного размещения */
     }
 
     .product-image {
-        height: 120px; /* Уменьшить высоту изображения */
+        height: 120px;
+        /* Уменьшить высоту изображения */
     }
 
     .product-title {
-        font-size: var(--font-size-sm); /* Уменьшить размер шрифта заголовка */
-        margin-bottom: var(--space-4); /* Уменьшить отступ */
+        font-size: var(--font-size-sm);
+        /* Уменьшить размер шрифта заголовка */
+        margin-bottom: var(--space-4);
+        /* Уменьшить отступ */
     }
 
     .product-price {
-        font-size: var(--font-size-base); /* Уменьшить размер шрифта цены */
+        font-size: var(--font-size-base);
+        /* Уменьшить размер шрифта цены */
     }
 
     .product-info {
-        padding: var(--space-8); /* Уменьшить внутренние отступы */
+        padding: var(--space-8);
+        /* Уменьшить внутренние отступы */
     }
 
     .tabs-container {
@@ -1126,27 +1137,34 @@ option {
 
         /* 4. Добавляем плавность для анимации появления */
         transition: all var(--duration-normal) var(--ease-standard);
-      }
-    #search-params-title{
+    }
+
+    #search-params-title {
         font-size: var(--font-size-3xl);
     }
+
     .settings-section label {
         font-size: 18px !important;
     }
-    #size-of-products{
+
+    #size-of-products {
         font-size: var(--font-size-xl);
     }
-    .max-size-select{
+
+    .max-size-select {
         font-size: var(--font-size-lg) !important;
     }
-    #exclude-word-input{
+
+    #exclude-word-input {
         font-size: var(--font-size-lg);
         width: 140px !important;
     }
-    .exclude-word-chip{
+
+    .exclude-word-chip {
         font-size: var(--font-size-lg) !important;
     }
-    .close-btn{
+
+    .close-btn {
         font-size: 28px !important;
     }
 }
@@ -1164,7 +1182,7 @@ option {
     }
 }
 
-.product-info p{
+.product-info p {
     margin: 0;
 }
 
@@ -1187,13 +1205,13 @@ option {
     display: none;
 }
 
-.tab-button.hidden + .tab-button {
+.tab-button.hidden+.tab-button {
     margin-left: 0;
 }
 
 .settings-button {
     position: absolute;
-    top: 13px;
+    top: 28px;
     right: 13px;
     background: none;
     border: none;
@@ -1202,7 +1220,7 @@ option {
     z-index: 1000;
 }
 
-.fas{
+.fas {
     transition: opacity 0.3s, transform 0.3s;
 }
 
@@ -1379,63 +1397,128 @@ option {
    Toast Notification
    ========================================================================== */
 .toast-notification {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translate(-50%, -20px);
-  background-color: var(--color-surface);
-  color: var(--color-error);
-  padding: 12px 24px;
-  border-radius: var(--radius-base);
-  border: 1px solid var(--color-error);
-  box-shadow: var(--shadow-lg);
-  font-weight: var(--font-weight-medium);
-  z-index: 9999;
-  opacity: 0;
-  pointer-events: none;
-  width: max-content;
-  max-width: 70vw;
-  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%, -20px);
+    background-color: var(--color-surface);
+    color: var(--color-error);
+    padding: 12px 24px;
+    border-radius: var(--radius-base);
+    border: 1px solid var(--color-error);
+    box-shadow: var(--shadow-lg);
+    font-weight: var(--font-weight-medium);
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    width: max-content;
+    max-width: 70vw;
+    transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .toast-notification.show {
-  opacity: 1;
-  transform: translate(-50%, 0);
-  pointer-events: auto;
+    opacity: 1;
+    transform: translate(-50%, 0);
+    pointer-events: auto;
 }
+
+.actual-results-page {
+    min-height: 100dvh;
+}
+
+.return-block {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+}
+
+@media (min-width: 768px) {
+    .return-block {
+        display: none;
+    }
+}
+
+.return-block-spinner {
+    width: 25px;
+    height: 25px;
+    border: 4px solid #FFF;
+    border-radius: 50%;
+    position: relative;
+    transform: rotate(45deg);
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+
+.return-block-spinner::before {
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    inset: -4px;
+    border-radius: 50%;
+    border: 4px solid var(--color-primary);
+    animation: prixClipFix 2s linear;
+}
+
+@keyframes prixClipFix {
+    0% {
+        clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+    }
+
+    25% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+    }
+
+    50% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+    }
+
+    75% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+    }
+
+    100% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+    }
+}
+
 
 /* ==========================================================================
    Utilities
    ========================================================================== */
 
 ::selection {
-  color: #999;
-  transition: 0.4s rotate;
+    color: #999;
+    transition: 0.4s rotate;
 }
 
 .animated-gradient-title {
-  background: linear-gradient(90deg, #007cf0, #00dfd8, var(--color-primary), #007cf0);
+    background: linear-gradient(90deg, #007cf0, #00dfd8, var(--color-primary), #007cf0);
 
-  background-size: 400% 100%;
+    background-size: 400% 100%;
 
-  -webkit-background-clip: text;
-  background-clip: text;
+    -webkit-background-clip: text;
+    background-clip: text;
 
-  color: transparent;
+    color: transparent;
 
-  animation: gradient-flow 5s ease-in-out infinite;
+    animation: gradient-flow 5s ease-in-out infinite;
 }
 
 @keyframes gradient-flow {
-  0% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0 50%;
-  }
+    0% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
 }
 
 #tolerance-section {
@@ -1465,5 +1548,3 @@ option {
     gap: 5px;
     font-size: 14px;
 }
-
-
